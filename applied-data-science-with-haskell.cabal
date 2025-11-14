@@ -1,0 +1,71 @@
+cabal-version:      3.0
+name:               applied-data-science-with-haskell
+version:            0.1.0.0
+-- synopsis:
+-- description:
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Michael Chavinda
+maintainer:         mschavinda@gmail.com
+-- copyright:
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  MyLib
+    -- other-modules:
+    -- other-extensions:
+    build-depends:    base ^>=4.18.3.0
+                    , bytestring
+                    , cassava
+                    , containers
+                    , text
+                    , vector
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+executable applied-data-science-with-haskell
+    import:           warnings
+    main-is:          Main.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:
+        base ^>=4.18.3.0,
+        applied-data-science-with-haskell
+
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+executable assignment1
+    import:           warnings
+    main-is:          Assignment1.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:
+        base ^>=4.18.3.0,
+        containers,
+        regex-tdfa,
+        text,
+        cassava,
+        applied-data-science-with-haskell
+    ghc-options: -Wall -fno-ignore-asserts
+
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+test-suite applied-data-science-with-haskell-test
+    import:           warnings
+    default-language: Haskell2010
+    -- other-modules:
+    -- other-extensions:
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.18.3.0,
+        applied-data-science-with-haskell
